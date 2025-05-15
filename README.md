@@ -55,6 +55,7 @@ python pi.py -i 100000 --with-gil -k 8
 ---
 
 ## Visualisierung / Architektur-Skizze
+```
 @startuml
 actor "User" as user
 
@@ -83,3 +84,4 @@ note right of worker
 end note
 
 @enduml
+```
