@@ -7,7 +7,7 @@ Dieses Projekt berechnet die Zahl π (Pi) parallelisiert mit Hilfe der Leibniz-R
 
 ## **Leibniz-Formel**
 
-[![leibnitz](https://raw.githubusercontent.com/Furerito/parallelpi/refs/heads/main/leibnitz.png)]
+![leibnitz](https://raw.githubusercontent.com/Furerito/parallelpi/refs/heads/main/leibnitz.png)
 ---
 
 ## **Nutzung**
@@ -110,4 +110,4 @@ python pi.py -i ITERATIONEN [Modus-Flag] [-k ARBEITER]
 
 ## Visualisierung / Architektur-Skizze
 
-[![diagramm](https://raw.githubusercontent.com/Furerito/parallelpi/refs/heads/main/diagram.png)]
+![diagramm](https://raw.githubusercontent.com/Furerito/parallelpi/refs/heads/main/diagram.png)
