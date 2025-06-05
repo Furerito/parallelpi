@@ -113,33 +113,4 @@ python pi.py -i ITERATIONEN [Modus-Flag] [-k ARBEITER]
 
 ## Visualisierung / Architektur-Skizze
 
-```plantuml
-@startuml
-actor "User" as user
-
-user -> "pi.py": Startet mit CLI-Parametern
-
-rectangle "Argumente parsen" as parse
-rectangle "Arbeiter-Manager" as manager
-rectangle "Threads ODER Prozesse" as worker_pool
-rectangle "Thread/Prozess" as worker
-rectangle "Resultat zusammenfassen" as result
-
-"pi.py" --> parse
-parse --> manager
-manager --> worker_pool
-worker_pool --> worker
-worker --> result
-result -> user : Ausgabe Pi
-
-note right of manager
-  Teilt Iterationen auf Segmente auf
-end note
-
-note right of worker
-  Berechnet Teil-Summe
-  Gibt Ergebnis zurück
-end note
-
-@enduml
-```
+[![alt text](https://raw.githubusercontent.com/Furerito/parallelpi/refs/heads/main/diagram.png)]
