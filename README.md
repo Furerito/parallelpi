@@ -1,8 +1,4 @@
-Hier kommt eine **komplett überarbeitete README.md**, die **alle bisherigen Methoden** enthält **UND** die **map/filter/reduce-Methode** klar beschreibt und dokumentiert.
 
----
-
-````markdown
 # Parallel PI – Parallele Berechnung von Pi in Python
 
 Dieses Projekt berechnet die Zahl π (Pi) parallelisiert mit Hilfe der Leibniz-Reihe. Die Implementierung unterstützt verschiedene Modi: klassische Python-Threads (mit GIL), parallele Threads (theoretisch ohne GIL, aber praktisch identisch), parallele Prozesse, Prozess-Pools, simulierte Verteilung auf mehrere Hosts sowie eine map/filter/reduce-Demonstration.
@@ -13,9 +9,6 @@ Dieses Projekt berechnet die Zahl π (Pi) parallelisiert mit Hilfe der Leibniz-R
 
 ![leibnitz](https://raw.githubusercontent.com/Furerito/parallelpi/refs/heads/main/leibnitz.png)
 
-\[
-\frac{\pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} - \cdots = \sum_{k=0}^\infty \frac{(-1)^k}{2k + 1}
-\]
 
 ---
 
