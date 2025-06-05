@@ -1,13 +1,22 @@
+Hier kommt eine **komplett überarbeitete README.md**, die **alle bisherigen Methoden** enthält **UND** die **map/filter/reduce-Methode** klar beschreibt und dokumentiert.
 
+---
+
+````markdown
 # Parallel PI – Parallele Berechnung von Pi in Python
 
-Dieses Projekt berechnet die Zahl π (Pi) parallelisiert mit Hilfe der Leibniz-Reihe. Die Implementierung unterstützt verschiedene Modi: klassische Python-Threads (mit GIL), parallele Threads (theoretisch ohne GIL, aber praktisch identisch), parallele Prozesse, Prozess-Pools und die simulierte Verteilung auf mehrere Hosts.
+Dieses Projekt berechnet die Zahl π (Pi) parallelisiert mit Hilfe der Leibniz-Reihe. Die Implementierung unterstützt verschiedene Modi: klassische Python-Threads (mit GIL), parallele Threads (theoretisch ohne GIL, aber praktisch identisch), parallele Prozesse, Prozess-Pools, simulierte Verteilung auf mehrere Hosts sowie eine map/filter/reduce-Demonstration.
 
 ---
 
 ## **Leibniz-Formel**
 
 ![leibnitz](https://raw.githubusercontent.com/Furerito/parallelpi/refs/heads/main/leibnitz.png)
+
+\[
+\frac{\pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} - \cdots = \sum_{k=0}^\infty \frac{(-1)^k}{2k + 1}
+\]
+
 ---
 
 ## **Nutzung**
@@ -69,6 +78,14 @@ python pi.py -i ITERATIONEN [Modus-Flag] [-k ARBEITER]
 
   → Berechnet nur das Segment Nr. 2 mit Grösse 10000 auf den Hosts host1 und host2.
 
+* **Mit map/filter/reduce-Demonstration**:
+
+  ```bash
+  python pi.py -i 100000 --with-mapfilterreduce
+  ```
+
+  → Zeigt explizit den Einsatz von `map`, `filter` und `reduce` an einem Pi-Teilproblem.
+
 ---
 
 ## Kurzbeschreibung der Modi
@@ -88,6 +105,13 @@ python pi.py -i ITERATIONEN [Modus-Flag] [-k ARBEITER]
 * **-s N --seg-size X --hosts ...**
   → Startet die Berechnung für ein einzelnes Segment (z.B. für einen Host, der im Cluster-Modus arbeitet). Segment N beginnt bei N\*X und geht bis (N+1)\*X.
 
+* **--with-mapfilterreduce**
+  → Berechnet Pi mit Hilfe der Funktionen `map`, `filter` und `reduce`. Hierbei wird die Arbeit wie folgt verteilt:
+
+  * **map:** Berechne für jedes Segment die Teilsumme der Leibniz-Reihe.
+  * **filter:** Behalte nur positive Zwischenergebnisse (Demo-Zweck).
+  * **reduce:** Fasse die gefilterten Teilergebnisse zu einer Gesamtsumme zusammen.
+
 * **Ohne Modus-Flag**
   → Fallback: Single-Thread (ohne Parallelisierung).
 
@@ -96,7 +120,7 @@ python pi.py -i ITERATIONEN [Modus-Flag] [-k ARBEITER]
 ## Ablauf
 
 1. Die Gesamtsumme wird auf die gewünschte Anzahl Threads/Prozesse/Hosts/Segmente aufgeteilt.
-2. Jeder Thread/Prozess/Host berechnet einen Teil der Reihe.
+2. Jeder Thread/Prozess/Host/Skript berechnet einen Teil der Reihe.
 3. Die Teilergebnisse werden zusammengeführt und ergeben die Annäherung an π.
 
 ---
@@ -111,3 +135,5 @@ python pi.py -i ITERATIONEN [Modus-Flag] [-k ARBEITER]
 ## Visualisierung / Architektur-Skizze
 
 ![diagramm](https://raw.githubusercontent.com/Furerito/parallelpi/refs/heads/main/diagram.png)
+
+---
